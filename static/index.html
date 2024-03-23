@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Server Status</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 50%;
+		}
+		th, td {
+			border: 1px solid black;
+			padding: 8px;
+			text-align: left;
+		}
+		th {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+<body>
+		<h2 align="center"> Server Status</h2>
+		<table align="center">
+			<tr>
+				<th>Server Name</th>
+				<th  style='text-align: center;'>Timer</th>
+				<th>Last Check</th>
+				<th  style='text-align: center;'>Server Status</th>
+			</tr>
+			{{range .}}
+			<tr>
+				<td>{{.Name}}</td>
+				<td style='text-align: center;'>{{.CheckPeriod}}</td>
+				<td>{{convertDateTime .LastCheck}}</td>
+				<td style='text-align: center;'>{{.Status}} {{GetIcon .Status}}</td>
+			</tr>
+			{{end}}
+		</table>
+</body>
+</html>
